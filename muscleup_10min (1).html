@@ -1,0 +1,300 @@
+
+<!-- saved from url=(0051)file:///C:/Users/live/Downloads/muscleup_10min.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#58CC02;--gd:#3a8c00;--gl:#d7f5b1;--b:#1CB0F6;--bl:#ddf4ff;--o:#FF9600;--ol:#fff0cc;--gb:#f7f7f7;--ge:#e5e5e5;--t:#3c3c3c;--tm:#afafaf;--w:#ffffff;--r:16px;--rs:10px;--f:'Nunito',sans-serif}
+body{font-family:var(--f);background:var(--gb);color:var(--t)}
+.app{max-width:480px;margin:0 auto;padding:0 0 80px}
+.nav{display:flex;align-items:center;justify-content:space-between;background:var(--w);border-bottom:2px solid var(--ge);padding:14px 20px;position:sticky;top:0;z-index:100}
+.nav-logo{font-size:21px;font-weight:900;color:var(--g)}
+.nav-streak{display:flex;align-items:center;gap:6px;font-weight:800;font-size:16px;color:var(--o)}
+.nav-xp{display:flex;align-items:center;gap:6px;font-weight:800;font-size:16px;color:var(--b)}
+.tab-bar{display:flex;background:var(--w);border-bottom:2px solid var(--ge);position:sticky;top:56px;z-index:99}
+.tab{flex:1;padding:14px 0;text-align:center;font-weight:700;font-size:12px;color:var(--tm);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;text-transform:uppercase;letter-spacing:.5px}
+.tab.active{color:var(--g);border-bottom-color:var(--g)}
+.screen{display:none;padding:20px}.screen.active{display:block}
+.stitle{font-size:12px;font-weight:800;color:var(--tm);text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px}
+.day-header{background:var(--g);border-radius:var(--r);padding:18px 20px;margin-bottom:16px;color:#fff}
+.day-header h2{font-size:18px;font-weight:900;margin-bottom:4px}
+.day-header p{font-size:13px;opacity:.85;font-weight:600}
+.pbwrap{background:rgba(255,255,255,.3);border-radius:100px;height:10px;margin-top:12px;overflow:hidden}
+.pb{background:#fff;border-radius:100px;height:100%;transition:width .4s ease}
+.plabel{font-size:12px;font-weight:700;margin-top:6px;opacity:.9}
+.timer-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.25);border-radius:100px;padding:5px 14px;font-size:13px;font-weight:800;margin-top:10px}
+.ex-card{background:var(--w);border-radius:var(--r);border:2px solid var(--ge);padding:14px;margin-bottom:10px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .2s}
+.ex-card.done{border-color:var(--g);background:#f0fff0}
+.ex-card.done .ex-name{text-decoration:line-through;color:var(--tm)}
+.ex-ico{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.ex-info{flex:1}
+.ex-name{font-weight:800;font-size:15px;margin-bottom:2px}
+.ex-detail{font-size:12px;color:var(--tm);font-weight:600}
+.ex-time{font-size:11px;font-weight:800;color:var(--b);background:var(--bl);border-radius:100px;padding:2px 8px;display:inline-block;margin-top:3px}
+.ex-chk{width:34px;height:34px;border-radius:50%;border:3px solid var(--ge);display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .2s;flex-shrink:0}
+.ex-card.done .ex-chk{background:var(--g);border-color:var(--g);color:#fff}
+.info-tip{background:var(--bl);border-radius:var(--rs);padding:10px 14px;margin-bottom:14px;font-size:12px;font-weight:700;color:#0077aa;display:flex;align-items:center;gap:8px}
+.done-msg{background:var(--gl);border-radius:var(--rs);padding:12px 16px;font-weight:800;font-size:14px;color:var(--gd);text-align:center;margin-bottom:14px;display:none}
+.done-msg.visible{display:block;animation:pop .3s ease}
+@keyframes pop{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
+.btn-finish{width:100%;background:var(--g);color:#fff;font-family:var(--f);font-weight:900;font-size:16px;border:none;border-radius:14px;padding:16px;cursor:pointer;margin-top:6px;box-shadow:0 4px 0 var(--gd);transition:all .15s;text-transform:uppercase}
+.btn-finish:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gd)}
+.btn-finish:disabled{background:var(--ge);color:var(--tm);box-shadow:none;cursor:default}
+.streak-hero{background:linear-gradient(135deg,var(--o) 0%,#FFB800 100%);border-radius:var(--r);padding:24px 20px;text-align:center;color:#fff;margin-bottom:20px}
+.sflame{font-size:52px;margin-bottom:4px}.scount{font-size:48px;font-weight:900;line-height:1}.slabel{font-size:15px;font-weight:700;opacity:.9;margin-top:4px}
+.wgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:20px}
+.wday{text-align:center}
+.wday-n{font-size:10px;font-weight:800;color:var(--tm);text-transform:uppercase;margin-bottom:5px}
+.wdot{width:34px;height:34px;border-radius:50%;margin:0 auto;border:2px solid var(--ge);display:flex;align-items:center;justify-content:center;font-size:14px}
+.wdot.done{background:var(--g);border-color:var(--g);color:#fff}
+.wdot.today{border-color:var(--o);border-width:3px}
+.wdot.missed{background:#ffe0e0;border-color:#ffb3b3}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.stat-card{background:var(--w);border-radius:var(--rs);border:2px solid var(--ge);padding:14px;text-align:center}
+.stat-num{font-size:28px;font-weight:900;color:var(--g)}
+.stat-lbl{font-size:11px;font-weight:700;color:var(--tm);text-transform:uppercase;margin-top:2px}
+.xp-lbl{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:var(--tm);margin-bottom:6px}
+.xpwrap{background:var(--ge);border-radius:100px;height:14px;margin-bottom:20px;overflow:hidden}
+.xpbar{background:var(--b);border-radius:100px;height:100%;transition:width .5s ease}
+.char-sec{text-align:center;margin-bottom:20px}
+.char{font-size:68px;animation:bounce 2s infinite;display:inline-block}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.char-name{font-size:17px;font-weight:900;margin-top:4px}
+.char-sub{font-size:12px;color:var(--tm);font-weight:600}
+.badge-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.badge-card{background:var(--w);border-radius:var(--r);border:2px solid var(--ge);padding:16px 12px;text-align:center;transition:all .2s}
+.badge-card.unlocked{border-color:var(--o);background:var(--ol)}
+.bico{font-size:44px;margin-bottom:6px;filter:grayscale(1) opacity(.4);transition:filter .3s}
+.badge-card.unlocked .bico{filter:none}
+.bname{font-size:13px;font-weight:800;margin-bottom:3px}
+.bdesc{font-size:11px;color:var(--tm);font-weight:600}
+.btag-on{display:inline-block;background:var(--o);color:#fff;font-size:10px;font-weight:800;border-radius:100px;padding:3px 10px;margin-top:5px;text-transform:uppercase}
+.btag-off{display:inline-block;background:var(--ge);color:var(--tm);font-size:10px;font-weight:800;border-radius:100px;padding:3px 10px;margin-top:5px;text-transform:uppercase}
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--t);color:#fff;padding:12px 24px;border-radius:100px;font-weight:700;font-size:13px;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;z-index:999}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+</head><body><div class="app">
+  <div class="nav">
+    <div class="nav-logo">💪 MuscleUp</div>
+    <div class="nav-streak">🔥 <span id="nav-streak">1</span></div>
+    <div class="nav-xp">⚡ <span id="nav-xp">210</span> XP</div>
+  </div>
+  <div class="tab-bar">
+    <div class="tab active" onclick="showTab(&#39;training&#39;,this)">🏋️ Entraîn.</div>
+    <div class="tab" onclick="showTab(&#39;streak&#39;,this)">🔥 Série</div>
+    <div class="tab" onclick="showTab(&#39;rewards&#39;,this)">🏆 Récomp.</div>
+  </div>
+
+  <div id="screen-training" class="screen active">
+    <div class="day-header">
+      <h2 id="day-title">Mercredi — Cardio 🫀</h2>
+      <p id="day-sub">0 / 5 exercices terminés</p>
+      <div class="pbwrap"><div class="pb" id="main-progress" style="width:0%"></div></div>
+      <div class="plabel" id="progress-label">Prêt(e) à commencer ?</div>
+      <div class="timer-badge">⏱️ Séance : <strong>~10 min</strong></div>
+    </div>
+    <div class="done-msg" id="done-msg">🎉 Séance terminée ! +30 XP gagnés !</div>
+    <div class="info-tip">💡 <span>Pas de pause longue — enchaîne pour rester dans les 10 min !</span></div>
+    <div class="stitle">Exercices du jour</div>
+    <div id="exercise-list"><div class="ex-card"><div class="ex-ico" style="background:#e8f5e9">🧘</div><div class="ex-info"><div class="ex-name">Échauffement</div><div class="ex-detail">Marche sur place 30 sec</div><div class="ex-time">⏱ 1 min</div></div><div class="ex-chk"></div></div><div class="ex-card"><div class="ex-ico" style="background:#e3f2fd">🏃</div><div class="ex-info"><div class="ex-name">Jumping Jacks</div><div class="ex-detail">2 × 20 secondes</div><div class="ex-time">⏱ 2 min</div></div><div class="ex-chk"></div></div><div class="ex-card"><div class="ex-ico" style="background:#fce4ec">🔥</div><div class="ex-info"><div class="ex-name">Burpees</div><div class="ex-detail">2 séries × 5 rép.</div><div class="ex-time">⏱ 3 min</div></div><div class="ex-chk"></div></div><div class="ex-card"><div class="ex-ico" style="background:#fff3e0">🌀</div><div class="ex-info"><div class="ex-name">Mountain Climbers</div><div class="ex-detail">2 × 20 secondes</div><div class="ex-time">⏱ 2 min</div></div><div class="ex-chk"></div></div><div class="ex-card"><div class="ex-ico" style="background:#e8f5e9">🔄</div><div class="ex-info"><div class="ex-name">Récup</div><div class="ex-detail">Respiration profonde</div><div class="ex-time">⏱ 2 min</div></div><div class="ex-chk"></div></div></div>
+    <button class="btn-finish" id="btn-finish" onclick="finishSession()" disabled="">Terminer la séance →</button>
+  </div>
+
+  <div id="screen-streak" class="screen">
+    <div class="streak-hero">
+      <div class="sflame">🔥</div>
+      <div class="scount" id="streak-big">1</div>
+      <div class="slabel">jours d'affilée</div>
+    </div>
+    <div class="stitle">Cette semaine</div>
+    <div class="wgrid" id="week-grid"><div class="wday"><div class="wday-n">Jeu</div><div class="wdot missed"></div></div><div class="wday"><div class="wday-n">Ven</div><div class="wdot missed"></div></div><div class="wday"><div class="wday-n">Sam</div><div class="wdot missed"></div></div><div class="wday"><div class="wday-n">Dim</div><div class="wdot missed"></div></div><div class="wday"><div class="wday-n">Lun</div><div class="wdot missed"></div></div><div class="wday"><div class="wday-n">Mar</div><div class="wdot missed"></div></div><div class="wday"><div class="wday-n">Mer</div><div class="wdot today">●</div></div></div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num" id="stat-total">7</div><div class="stat-lbl">Séances totales</div></div>
+      <div class="stat-card"><div class="stat-num" id="stat-best">1</div><div class="stat-lbl">Meilleure série</div></div>
+    </div>
+    <div class="xp-lbl"><span>⚡ Niveau <span id="level-num">3</span></span><span id="xp-label">10 / 100 XP</span></div>
+    <div class="xpwrap"><div class="xpbar" id="xp-bar" style="width: 10%;"></div></div>
+    <div class="char-sec">
+      <div class="char" id="character-icon">🐺</div>
+      <div class="char-name" id="character-name">Loup solitaire</div>
+      <div class="char-sub" id="character-sub">L'effort paye !</div>
+    </div>
+  </div>
+
+  <div id="screen-rewards" class="screen">
+    <div class="stitle">Tes badges</div>
+    <div class="badge-grid" id="badge-grid"><div class="badge-card unlocked"><div class="bico">🥇</div><div class="bname">Première séance</div><div class="bdesc">Complète ta 1ère séance</div><div class="btag-on">Débloqué !</div></div><div class="badge-card"><div class="bico">🔥</div><div class="bname">Semaine parfaite</div><div class="bdesc">7 jours d'affilée</div><div class="btag-off">Encore 6 j.</div></div><div class="badge-card unlocked"><div class="bico">⭐</div><div class="bname">Régulier</div><div class="bdesc">5 séances terminées</div><div class="btag-on">Débloqué !</div></div><div class="badge-card"><div class="bico">💎</div><div class="bname">Guerrier</div><div class="bdesc">10 séances terminées</div><div class="btag-off">Encore 3 sé.</div></div><div class="badge-card"><div class="bico">🌟</div><div class="bname">Lance-toi !</div><div class="bdesc">3 jours d'affilée</div><div class="btag-off">Encore 2 j.</div></div><div class="badge-card"><div class="bico">🦁</div><div class="bname">Lion</div><div class="bdesc">14 jours d'affilée</div><div class="btag-off">Encore 13 j.</div></div><div class="badge-card"><div class="bico">👑</div><div class="bname">Légende</div><div class="bdesc">30 jours d'affilée</div><div class="btag-off">Encore 29 j.</div></div><div class="badge-card unlocked"><div class="bico">⚡</div><div class="bname">Électrique</div><div class="bdesc">100 XP gagnés</div><div class="btag-on">Débloqué !</div></div></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DAYS=['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+const TODAY=new Date().getDay();
+
+const WORKOUTS={
+  1:{name:'Lundi — Haut du corps 💪',exercises:[
+    {ico:'🧘',name:'Échauffement',detail:'Bras, épaules, cou',time:'1 min',bg:'#e8f5e9'},
+    {ico:'💪',name:'Pompes',detail:'2 séries × 8 rép.',time:'2 min',bg:'#e3f2fd'},
+    {ico:'🔽',name:'Tractions élastique',detail:'2 séries × 6 rép.',time:'2 min',bg:'#fce4ec'},
+    {ico:'💥',name:'Planche (Plank)',detail:'2 × 20 secondes',time:'2 min',bg:'#f3e5f5'},
+    {ico:'🔄',name:'Étirements',detail:'Bras, dos, épaules',time:'3 min',bg:'#e8f5e9'}
+  ]},
+  2:{name:'Mardi — Bas du corps 🦵',exercises:[
+    {ico:'🧘',name:'Échauffement',detail:'Hanches, chevilles, genoux',time:'1 min',bg:'#e8f5e9'},
+    {ico:'🦵',name:'Squats',detail:'3 séries × 10 rép.',time:'3 min',bg:'#e3f2fd'},
+    {ico:'🚶',name:'Fentes sur place',detail:'2 × 8 rép. par jambe',time:'3 min',bg:'#fce4ec'},
+    {ico:'🔄',name:'Étirements jambes',detail:'Quadri, ischio, mollets',time:'3 min',bg:'#e8f5e9'}
+  ]},
+  3:{name:'Mercredi — Cardio 🫀',exercises:[
+    {ico:'🧘',name:'Échauffement',detail:'Marche sur place 30 sec',time:'1 min',bg:'#e8f5e9'},
+    {ico:'🏃',name:'Jumping Jacks',detail:'2 × 20 secondes',time:'2 min',bg:'#e3f2fd'},
+    {ico:'🔥',name:'Burpees',detail:'2 séries × 5 rép.',time:'3 min',bg:'#fce4ec'},
+    {ico:'🌀',name:'Mountain Climbers',detail:'2 × 20 secondes',time:'2 min',bg:'#fff3e0'},
+    {ico:'🔄',name:'Récup',detail:'Respiration profonde',time:'2 min',bg:'#e8f5e9'}
+  ]},
+  4:{name:'Jeudi — Repos actif 😴',exercises:[
+    {ico:'🚶',name:'Marche dehors',detail:'10 min tranquille',time:'10 min',bg:'#e8f5e9'},
+    {ico:'🧘',name:'Étirements doux',detail:'Corps entier',time:'5 min',bg:'#e3f2fd'},
+    {ico:'💧',name:'Hydratation',detail:'1 grand verre d\'eau !',time:'—',bg:'#fce4ec'}
+  ]},
+  5:{name:'Vendredi — Full Body 🏋️',exercises:[
+    {ico:'🧘',name:'Échauffement',detail:'Rotations des bras, squat léger',time:'1 min',bg:'#e8f5e9'},
+    {ico:'💪',name:'Pompes larges',detail:'2 × 8 rép.',time:'2 min',bg:'#e3f2fd'},
+    {ico:'🦵',name:'Squats sautés',detail:'2 × 8 rép.',time:'2 min',bg:'#fce4ec'},
+    {ico:'💥',name:'Gainage latéral',detail:'20 sec par côté × 2',time:'3 min',bg:'#fff3e0'},
+    {ico:'🔄',name:'Étirements',detail:'Corps entier',time:'2 min',bg:'#e8f5e9'}
+  ]},
+  6:{name:'Samedi — Cardio fun ⚽',exercises:[
+    {ico:'⚽',name:'Sport au choix',detail:'Foot, vélo, natation...',time:'10 min',bg:'#e8f5e9'},
+    {ico:'🧘',name:'Récup',detail:'Étirements rapides',time:'5 min',bg:'#e3f2fd'}
+  ]},
+  0:{name:'Dimanche — Repos total 🌟',exercises:[
+    {ico:'😴',name:'Repos complet',detail:'Le corps grandit en dormant !',time:'—',bg:'#e8f5e9'},
+    {ico:'🥗',name:'Bien manger',detail:'Protéines : œufs, poulet...',time:'—',bg:'#e3f2fd'},
+    {ico:'💧',name:'Hydrater',detail:'1,5L d\'eau minimum',time:'—',bg:'#fce4ec'}
+  ]}
+};
+
+const BADGES=[
+  {id:'first',ico:'🥇',name:'Première séance',desc:'Complète ta 1ère séance',need:1,type:'sessions'},
+  {id:'week',ico:'🔥',name:'Semaine parfaite',desc:'7 jours d\'affilée',need:7,type:'streak'},
+  {id:'s5',ico:'⭐',name:'Régulier',desc:'5 séances terminées',need:5,type:'sessions'},
+  {id:'s10',ico:'💎',name:'Guerrier',desc:'10 séances terminées',need:10,type:'sessions'},
+  {id:'s3',ico:'🌟',name:'Lance-toi !',desc:'3 jours d\'affilée',need:3,type:'streak'},
+  {id:'s14',ico:'🦁',name:'Lion',desc:'14 jours d\'affilée',need:14,type:'streak'},
+  {id:'s30',ico:'👑',name:'Légende',desc:'30 jours d\'affilée',need:30,type:'streak'},
+  {id:'xp',ico:'⚡',name:'Électrique',desc:'100 XP gagnés',need:100,type:'xp'}
+];
+const CHARS=[
+  {min:0,ico:'🐣',name:'Débutant',sub:'Bienvenue dans la salle !'},
+  {min:30,ico:'🐥',name:'Apprenti',sub:'Tu progresses !'},
+  {min:100,ico:'🐺',name:'Loup solitaire',sub:'L\'effort paye !'},
+  {min:250,ico:'🦊',name:'Renard futé',sub:'Régulier et efficace !'},
+  {min:500,ico:'🦅',name:'Aigle',sub:'Tu voles haut !'},
+  {min:1000,ico:'🦁',name:'Lion',sub:'Respect total !'}
+];
+
+let state={checked:{},streak:0,bestStreak:0,sessions:0,xp:0,history:[],todayDone:false};
+function load(){try{const s=localStorage.getItem('muscleup_10');if(s)state=JSON.parse(s);}catch(e){}}
+function save(){try{localStorage.setItem('muscleup_10',JSON.stringify(state));}catch(e){}}
+function getToday(){return new Date().toDateString();}
+function getChecked(){return state.checked[getToday()]||{};}
+function setChecked(i,v){if(!state.checked[getToday()])state.checked[getToday()]={};state.checked[getToday()][i]=v;save();}
+
+function renderTraining(){
+  const w=WORKOUTS[TODAY]||WORKOUTS[1];
+  const exs=w.exercises;
+  const chk=getChecked();
+  let done=0;exs.forEach((_,i)=>{if(chk[i])done++;});
+  document.getElementById('day-title').textContent=w.name;
+  document.getElementById('day-sub').textContent=done+' / '+exs.length+' exercices terminés';
+  const pct=Math.round(done/exs.length*100);
+  document.getElementById('main-progress').style.width=pct+'%';
+  const lbls=['Prêt(e) à commencer ?','Bien parti(e) ! 💪','À mi-chemin ! 🔥','Presque fini ! 🚀','SÉANCE TERMINÉE ! 🏆'];
+  document.getElementById('progress-label').textContent=lbls[Math.min(Math.floor(pct/100*(lbls.length-1)),lbls.length-1)];
+  const list=document.getElementById('exercise-list');
+  list.innerHTML='';
+  exs.forEach((ex,i)=>{
+    const d=!!chk[i];
+    const c=document.createElement('div');
+    c.className='ex-card'+(d?' done':'');
+    c.innerHTML=`<div class="ex-ico" style="background:${ex.bg}">${ex.ico}</div><div class="ex-info"><div class="ex-name">${ex.name}</div><div class="ex-detail">${ex.detail}</div><div class="ex-time">⏱ ${ex.time}</div></div><div class="ex-chk">${d?'✓':''}</div>`;
+    c.onclick=()=>toggle(i);
+    list.appendChild(c);
+  });
+  const all=done===exs.length;
+  const btn=document.getElementById('btn-finish');
+  btn.disabled=!all||state.todayDone===getToday();
+  if(state.todayDone===getToday()){
+    document.getElementById('done-msg').classList.add('visible');
+    btn.textContent='✅ Séance complétée aujourd\'hui !';
+  } else {
+    document.getElementById('done-msg').classList.remove('visible');
+    btn.textContent='Terminer la séance →';
+  }
+}
+function toggle(i){
+  if(state.todayDone===getToday())return;
+  const chk=getChecked();
+  setChecked(i,!chk[i]);
+  showToast(!chk[i]?'✓ Exercice coché !':'Décoché');
+  renderTraining();
+}
+function finishSession(){
+  if(state.todayDone===getToday())return;
+  state.todayDone=getToday();state.sessions++;state.xp+=30;
+  const today=getToday();
+  if(!state.history.includes(today)){
+    state.history.push(today);
+    const yest=new Date();yest.setDate(yest.getDate()-1);
+    state.streak=state.history.includes(yest.toDateString())?state.streak+1:1;
+    if(state.streak>state.bestStreak)state.bestStreak=state.streak;
+  }
+  save();renderTraining();renderStreak();renderRewards();showToast('🎉 +30 XP ! Bravo !');
+}
+function renderStreak(){
+  document.getElementById('nav-streak').textContent=state.streak;
+  document.getElementById('nav-xp').textContent=state.xp;
+  document.getElementById('streak-big').textContent=state.streak;
+  document.getElementById('stat-total').textContent=state.sessions;
+  document.getElementById('stat-best').textContent=state.bestStreak;
+  const xpL=state.xp%100,lv=Math.floor(state.xp/100)+1;
+  document.getElementById('level-num').textContent=lv;
+  document.getElementById('xp-label').textContent=xpL+' / 100 XP';
+  document.getElementById('xp-bar').style.width=xpL+'%';
+  const ch=CHARS.filter(c=>state.xp>=c.min).pop();
+  document.getElementById('character-icon').textContent=ch.ico;
+  document.getElementById('character-name').textContent=ch.name;
+  document.getElementById('character-sub').textContent=ch.sub;
+  const g=document.getElementById('week-grid');g.innerHTML='';
+  const t=new Date();
+  for(let i=0;i<7;i++){
+    const d=new Date(t);d.setDate(t.getDate()-(6-i));
+    const dn=state.history.includes(d.toDateString());
+    const isT=i===6;
+    const div=document.createElement('div');div.className='wday';
+    div.innerHTML=`<div class="wday-n">${DAYS[d.getDay()]}</div><div class="wdot ${dn?'done':isT?'today':i<6?'missed':''}">${dn?'✓':isT?'●':''}</div>`;
+    g.appendChild(div);
+  }
+}
+function renderRewards(){
+  const g=document.getElementById('badge-grid');g.innerHTML='';
+  BADGES.forEach(b=>{
+    const val=b.type==='streak'?state.streak:b.type==='sessions'?state.sessions:state.xp;
+    const ok=val>=b.need;
+    const c=document.createElement('div');c.className='badge-card'+(ok?' unlocked':'');
+    c.innerHTML=`<div class="bico">${b.ico}</div><div class="bname">${b.name}</div><div class="bdesc">${b.desc}</div><div class="${ok?'btag-on':'btag-off'}">${ok?'Débloqué !':'Encore '+(b.need-val)+(b.type==='streak'?' j.':b.type==='xp'?' XP':' sé.')}</div>`;
+    g.appendChild(c);
+  });
+}
+function showTab(id,el){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('screen-'+id).classList.add('active');
+  el.classList.add('active');
+}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+load();renderTraining();renderStreak();renderRewards();
+</script>
+</body></html>
